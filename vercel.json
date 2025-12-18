@@ -1,0 +1,8 @@
+{
+  "installCommand": "cd problem_carousel_dashboard && npm ci",
+  "buildCommand": "cd problem_carousel_dashboard && npm run build",
+  "outputDirectory": "problem_carousel_dashboard/build",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
