@@ -53,14 +53,34 @@ const ProblemCarousel = () => {
       </div>
       <div className="page-content">
         <div className="carousel-frame">
-          <Carousel interval={5000} controls indicators fade={false} pause={false} touch wrap>
+          <Carousel interval={5000} ride="carousel" controls indicators fade={false} pause={false} touch wrap>
             {problems.map((p, idx) => (
               <Carousel.Item key={idx}>
                 <Card className="carousel-card">
                   <Card.Body className="content-only d-flex flex-column h-100">
                     <Card.Title className="mb-2 display-title">{p.title}</Card.Title>
-                    <Badge bg="secondary" className="mb-3 domain-badge">{p.domain}</Badge>
-                    <Card.Text className="flex-grow-1 description-text">{p.description}</Card.Text>
+                    <div className="sdg-badges mb-2">
+                      {p.sdgs && p.sdgs.map((s, i) => (
+                        <Badge key={i} bg="warning" text="dark" className="me-2 sdg-badge">{s}</Badge>
+                      ))}
+                    </div>
+                    <div className="mb-2">
+                      {p.domain && p.domain.map((d, i) => (
+                        <Badge bg="secondary" key={i} className="me-2 domain-badge">{d}</Badge>
+                      ))}
+                    </div>
+                    <Card.Text className="lead-statement">{p.problemStatement}</Card.Text>
+                    <Card.Text className="description-text">{p.problemDescription}</Card.Text>
+                    {p.sampleTools && (
+                      <div className="tools-list mt-3">
+                        <strong>Sample Tools / Technologies:</strong>
+                        <div className="mt-1">
+                          {p.sampleTools.map((t, i) => (
+                            <span key={i} className="tool-chip me-2">{t}</span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                     <div className="card-footer-actions" />
                   </Card.Body>
                 </Card>
