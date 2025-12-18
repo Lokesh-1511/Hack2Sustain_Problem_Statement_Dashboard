@@ -1,0 +1,241 @@
+.carousel-page {
+  /* Dark purple gradient background similar to reference */
+  background: radial-gradient(1200px 400px at 50% 0%, #2a2252 0%, #1a1534 55%, #100d22 100%);
+  color: #e9e6ff;
+  height: 100vh;
+  overflow: hidden; /* prevent page scroll */
+  display: grid;
+  grid-template-rows: auto 1fr; /* header + content fill */
+}
+
+.page-header {
+  padding-top: 16px; /* push title + logos down from the top */
+  padding-bottom: 4px; /* tighter header to give more height to card */
+}
+
+.page-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.carousel-frame {
+  width: 92vw;
+  max-width: 1400px;
+  height: 88vh; /* increase vertical size while keeping within viewport */
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.header-sponsors {
+  display: grid;
+  /* Make a 3-column header: left sponsors | title | right sponsors. */
+  /* Allow side columns to shrink so items don't wrap. */
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 24px;
+  row-gap: 6px;
+  margin-bottom: 6px;
+}
+
+.title-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sponsor-list {
+  display: flex;
+  flex-wrap: nowrap; /* keep all boxes on one line */
+  align-items: center;
+  gap: 14px;
+  min-width: 0; /* allow shrinking inside grid column */
+}
+
+.sponsor-list.left {
+  justify-content: flex-end;
+}
+
+.sponsor-list.right {
+  justify-content: flex-start;
+}
+
+.sponsor-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  width: auto; /* size controlled by inner logo wrap */
+  flex: 0 1 auto; /* allow shrink without wrapping */
+  text-align: center;
+}
+
+.sponsor-logo-wrap {
+  /* Responsive box size: shrinks on tighter screens to avoid wrap */
+  width: clamp(120px, 11vw, 160px);
+  height: clamp(72px, 7vw, 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.sponsor-logo {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 0 6px rgba(127, 90, 240, 0.45));
+  object-fit: contain;
+}
+
+.sponsor-logo-wrap:hover { box-shadow: none; border: none; }
+
+.sponsor-name {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  background: linear-gradient(90deg, #f4d03f, #f9e79f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 10px rgba(244, 208, 63, 0.2);
+  line-height: 1.1;
+}
+
+.hackathon-brand {
+  margin-bottom: 0.75rem;
+}
+
+.hackathon-title {
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  background: linear-gradient(90deg, #b085f5, #7f5af0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hackathon-subtitle {
+  font-weight: 700;
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  color: #f4d03f;
+}
+
+.hackathon-tagline {
+  margin: 6px auto 0;
+  max-width: 900px;
+  color: #d9d7f3;
+  font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+}
+
+.section-title {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #f4d03f; /* warm accent like neon yellow */
+}
+
+.section-underline {
+  width: 64px;
+  height: 4px;
+  border-radius: 2px;
+  margin: 8px auto 0;
+  background: linear-gradient(90deg, #f4d03f, #f9e79f);
+}
+
+.carousel-card {
+  height: 100%;
+  width: 100%;
+  background-color: #1c1830; /* inner panel */
+  border-radius: 18px;
+  border: 1.5px solid #f4d03f; /* neon border */
+  box-shadow: 0 0 0 3px rgba(244, 208, 63, 0.2), 0 10px 40px rgba(0, 0, 0, 0.45), 0 0 30px rgba(244, 208, 63, 0.25);
+}
+
+.content-only {
+  padding: 24px 28px;
+  display: flex;
+}
+
+.display-title {
+  font-weight: 700;
+  font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+  color: #ffffff;
+}
+
+.domain-badge {
+  font-size: 0.9rem;
+  background: linear-gradient(135deg, #7f5af0, #9b78ff);
+}
+
+.description-text {
+  font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+  line-height: 1.5;
+  color: #d9d7f3;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .header-sponsors {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 8px;
+  }
+  .sponsor-logo-wrap {
+    width: 130px;
+    height: 84px;
+    padding: 6px;
+  }
+  .sponsor-list.left,
+  .sponsor-list.right {
+    justify-content: center;
+  }
+  /* Content already fills full width on mobile */
+}
+
+/* Carousel controls styled to match purple theme */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 64px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(127, 90, 240, 0.15);
+  box-shadow: 0 0 0 2px rgba(155, 120, 255, 0.4);
+  background-size: 24px 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3E%3Cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L6.707 7l4.647 4.646a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3E%3Cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l5 5a.5.5 0 0 1 0 .708l-5 5a.5.5 0 0 1-.708-.708L9.293 7 4.646 2.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+}
+
+/* Indicators styled as small purple dots */
+.carousel-indicators [data-bs-target] {
+  background-color: rgba(127, 90, 240, 0.5);
+}
+
+.carousel-indicators .active {
+  background-color: #7f5af0;
+}
