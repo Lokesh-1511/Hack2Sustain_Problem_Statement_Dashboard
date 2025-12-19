@@ -11,7 +11,7 @@
 .qr-box { display: flex; flex-direction: column; align-items: center; gap: 6px; }
 .qr-box.left { justify-self: start; }
 .qr-box.right { justify-self: end; }
-.qr-image { width: 180px; height: 180px; object-fit: contain; border-radius: 10px; box-shadow: 0 6px 18px rgba(0,0,0,0.45), 0 0 12px rgba(127,90,240,0.18); border: 2px solid rgba(255,255,255,0.08); background: #fff; padding: 8px; }
+.qr-image { width: 150px; height: 150px; object-fit: contain; border-radius: 10px; box-shadow: 0 6px 18px rgba(0,0,0,0.45), 0 0 12px rgba(127,90,240,0.18); border: 2px solid rgba(255,255,255,0.08); background: #fff; padding: 8px; }
 .qr-caption { font-size: 1.05rem; font-weight: 600; color: #f4f0ff; text-align: center; max-width: 180px; }
 /* QR beside the problem statement */
 .qr-aside { display: flex; flex-direction: column; align-items: center; gap: 8px; }
