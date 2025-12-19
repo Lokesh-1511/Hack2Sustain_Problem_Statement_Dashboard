@@ -5,6 +5,7 @@ import './ProblemCarousel.css';
 
 // Full-page, single-card carousel with slide animation and infinite looping
 const ProblemCarousel = () => {
+  const [showQRModal, setShowQRModal] = React.useState(false);
   return (
     <div className="carousel-page">
       <div className="page-header">
@@ -97,7 +98,32 @@ const ProblemCarousel = () => {
           <img src="/QR/PDFQR.png" alt="PDF QR - download problem statement" className="qr-image" />
           <div className="qr-caption">Scan to download PDF</div>
         </div>
+        {/* Tiny floating button to open large QR view */}
+        <button
+          className="qr-fab"
+          type="button"
+          aria-label="Show QR codes"
+          onClick={() => setShowQRModal(true)}
+          title="Show QR codes"
+        >
+          QR
+        </button>
       </div>
+      {showQRModal && (
+        <div className="qr-fullscreen" role="dialog" aria-modal="true" aria-label="Quick QR Access">
+          <button className="qr-close" aria-label="Close" onClick={() => setShowQRModal(false)} title="Close">✕</button>
+          <div className="qr-fullscreen-grid">
+            <div className="qr-modal-item">
+              <img className="qr-full-img" src="/QR/FormQR.png" alt="Form QR - select problem" />
+              <div className="qr-caption">Scan to open selection form</div>
+            </div>
+            <div className="qr-modal-item">
+              <img className="qr-full-img" src="/QR/PDFQR.png" alt="PDF QR - download problem statement" />
+              <div className="qr-caption">Scan to download PDF</div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
