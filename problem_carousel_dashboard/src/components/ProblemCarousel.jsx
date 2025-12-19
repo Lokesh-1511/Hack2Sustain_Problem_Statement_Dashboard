@@ -11,7 +11,6 @@ const ProblemCarousel = () => {
         <div className="section-header">
           <div className="header-sponsors">
             {/* Sponsor filename mapping for public/logos */}
-            {null}
             <div className="sponsor-list left">
               {[
                 { key: 'StartupTN', file: 'startup_tn.png', name: 'StartupTN' },
@@ -35,6 +34,7 @@ const ProblemCarousel = () => {
               {[
                 { key: 'OSpectra', file: 'Ospectra.jpg', name: 'OSpectra' },
                 { key: 'ABT-Maruthi', file: 'ABT Maruthi.jpg', name: 'ABT Maruthi' },
+                { key: 'GG-India-Insurance', file: 'GGinsurance.jpeg', name: 'GG India Insurance' },
               ].map((s) => (
                 <div key={s.key} className={`sponsor-item sponsor-${s.key}`} title={s.name}>
                   <div className="sponsor-logo-wrap">
@@ -44,6 +44,7 @@ const ProblemCarousel = () => {
                 </div>
               ))}
             </div>
+            {null}
           </div>
           <div className="title-center">
             <h2 className="section-title">Problem Statements</h2>
@@ -52,6 +53,10 @@ const ProblemCarousel = () => {
         </div>
       </div>
       <div className="page-content">
+        <div className="qr-aside left">
+          <img src="/QR/FormQR.png" alt="Form QR - select problem" className="qr-image" />
+          <div className="qr-caption">Scan to open selection form</div>
+        </div>
         <div className="carousel-frame">
           <Carousel interval={5000} ride="carousel" controls indicators fade={false} pause={false} touch wrap>
             {problems.map((p, idx) => (
@@ -87,6 +92,10 @@ const ProblemCarousel = () => {
               </Carousel.Item>
             ))}
           </Carousel>
+        </div>
+        <div className="qr-aside right">
+          <img src="/QR/PDFQR.png" alt="PDF QR - download problem statement" className="qr-image" />
+          <div className="qr-caption">Scan to download PDF</div>
         </div>
       </div>
     </div>

@@ -1,11 +1,22 @@
 /* Cleaned and corrected stylesheet */
 .carousel-page { background: radial-gradient(1200px 400px at 50% 0%, #2a2252 0%, #1a1534 55%, #100d22 100%); color: #e9e6ff; height: 100vh; overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
 .page-header { padding-top: 16px; padding-bottom: 4px; }
-.page-content { display: flex; align-items: center; justify-content: center; height: 100%; }
+.page-content { display: flex; align-items: center; justify-content: center; height: 100%; gap: 28px; }
 .carousel-frame { width: 75vw; max-width: 1200px; height: 70vh; }
 .carousel-frame .carousel, .carousel-frame .carousel-inner, .carousel-frame .carousel-item { height: 100%; }
 .section-header { text-align: center; margin-bottom: 0.75rem; }
 .header-sponsors { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; column-gap: 24px; row-gap: 6px; margin-bottom: 6px; }
+
+/* QR boxes placed at far left and far right of the header */
+.qr-box { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.qr-box.left { justify-self: start; }
+.qr-box.right { justify-self: end; }
+.qr-image { width: 140px; height: 140px; object-fit: contain; border-radius: 10px; box-shadow: 0 6px 18px rgba(0,0,0,0.45), 0 0 12px rgba(127,90,240,0.18); border: 2px solid rgba(255,255,255,0.08); background: #fff; padding: 8px; }
+.qr-caption { font-size: 0.85rem; color: #f4f0ff; text-align: center; max-width: 150px; }
+/* QR beside the problem statement */
+.qr-aside { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.qr-aside.left { order: 0; }
+.qr-aside.right { order: 2; }
 .title-center { display: flex; flex-direction: column; align-items: center; }
 .sponsor-list { display: flex; flex-wrap: nowrap; align-items: center; gap: 14px; min-width: 0; }
 .sponsor-list.left { justify-content: flex-end; }
@@ -110,6 +121,7 @@
 /* Mobile */
 @media (max-width: 768px) {
   .header-sponsors { grid-template-columns: 1fr; justify-items: center; gap: 8px; }
+  .qr-aside { display: none; }
   .carousel-frame { width: 92vw; height: 72vh; max-width: none; }
   .sponsor-logo-wrap { width: 130px; height: 84px; padding: 0; }
   .sponsor-list.left, .sponsor-list.right { justify-content: center; }
